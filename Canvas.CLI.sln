@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canvas.CLI", "Canvas.CLI\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canvas.Library", "Canvas.Library\Canvas.Library.csproj", "{E06E5CF9-7D14-49E6-BC86-966938B4333C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canvas.MAUI", "Canvas.MAUI\Canvas.MAUI.csproj", "{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{E06E5CF9-7D14-49E6-BC86-966938B4333C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E06E5CF9-7D14-49E6-BC86-966938B4333C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E06E5CF9-7D14-49E6-BC86-966938B4333C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4CD5D6-A6EA-4D35-8ECA-2B9BEB8B7174}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

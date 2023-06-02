@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Canvas.MAUI.MainPage">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0" Text="{Binding Path=Test1}"></Entry>
+                <Button Grid.Column="1" Text="Search" Clicked="Button_Clicked"></Button>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ListView
+                    ItemsSource="{Binding Path=Students}"
+                    SelectedItem="{Binding Path=SelectedStudent, Mode=TwoWay}"
+                    >
+                    
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Add" Grid.Column="0"></Button>
+                    <Button Text="Edit" Grid.Column="1"></Button>
+                    <Button Text="Delete" Grid.Column="2" Clicked="DeleteClick"></Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

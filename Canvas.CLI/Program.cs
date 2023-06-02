@@ -1,19 +1,26 @@
 ﻿using Canvas.CLI.Models;
-using System;
+using Canvas.Library.Services;
 
-namespace Canvas 
+namespace Canvas
 {
     internal class Program
     {
 
         static void Main(string[] args)
         {
-            List<Student> enrollments = new List<Student>();
-            StudentMenu(enrollments);
+            List<Course> courses = new List<Course>();
+            StudentMenu();
+            CourseMenu(courses);
+
         }
 
-        static void StudentMenu(List<Student> enrollments)
+        static void CourseMenu(List<Course> courses) {
+            var myStudentService = StudentService.Current;
+        }
+
+        static void StudentMenu()
         {
+            var studentService = StudentService.Current;
             while (true)
             {
                 Console.WriteLine("C. Create a Student");
@@ -33,7 +40,7 @@ namespace Canvas
                     Console.WriteLine("Name: ");
                     var name = Console.ReadLine();
 
-                    enrollments.Add(
+                    StudentService.Current.Add(
                         new Student
                         {
                             Id = Id,
@@ -45,17 +52,17 @@ namespace Canvas
                 else if (choice.Equals("R", StringComparison.InvariantCultureIgnoreCase))
                 {
                     //Read stuff
-                    enrollments.ForEach(Console.WriteLine);
+                    StudentService.Current.Read();
 
                 }
                 else if (choice.Equals("U", StringComparison.InvariantCultureIgnoreCase))
                 {
                     //Update stuff
                     Console.WriteLine("Which student should be updated?");
-                    enrollments.ForEach(Console.WriteLine);
+                    studentService.Read();
                     var updateChoice = int.Parse(Console.ReadLine() ?? "0");
 
-                    var studentToUpdate = enrollments.FirstOrDefault(s => s.Id == updateChoice);
+                    var studentToUpdate = studentService.Get(updateChoice);
                     if (studentToUpdate != null)
                     {
                         Console.WriteLine("What is the student's updated name?");
@@ -66,14 +73,9 @@ namespace Canvas
                 {
                     //Delete stuff
                     Console.WriteLine("Which student should be deleted?");
-                    enrollments.ForEach(Console.WriteLine);
+                    studentService.Read();
                     var deleteChoice = int.Parse(Console.ReadLine() ?? "0");
-
-                    var studentToRemove = enrollments.FirstOrDefault(s => s.Id == deleteChoice);
-                    if (studentToRemove != null)
-                    {
-                        enrollments.Remove(studentToRemove);
-                    }
+                    studentService.Delete(deleteChoice);
                 }
                 else if (choice.Equals("Q", StringComparison.InvariantCultureIgnoreCase))
                 {
