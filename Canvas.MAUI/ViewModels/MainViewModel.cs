@@ -2,6 +2,7 @@
 using Canvas.Library.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,11 +13,21 @@ namespace Canvas.MAUI.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public List<Student> Students { 
+        public ObservableCollection<Student> Students { 
             get
             {
-                return StudentService.Current.Enrollments;
+                if(string.IsNullOrEmpty(Query))
+                {
+                    return new ObservableCollection<Student>(StudentService.Current.Enrollments);
+                }
+                return new ObservableCollection<Student>(StudentService.Current.Search(Query));
             }
+        }
+
+        public string Query { get; set; }
+
+        public void Search() {
+            NotifyPropertyChanged("Students");
         }
 
         public void Delete()

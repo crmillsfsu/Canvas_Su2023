@@ -42,6 +42,11 @@ namespace Canvas.Library.Services
             get { return enrollments; }
         }
 
+        public List<Student> Search(string query)
+        {
+            return Enrollments.Where(s => s.Name.ToUpper().Contains(query.ToUpper())).ToList();
+        }
+
         public Student? Get(int id)
         {
             return enrollments.FirstOrDefault(e => e.Id == id);

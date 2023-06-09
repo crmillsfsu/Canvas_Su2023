@@ -11,9 +11,9 @@ namespace Canvas.MAUI
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void SearchClicked(object sender, EventArgs e)
         {
-            
+            (BindingContext as MainViewModel).Search();
         }
 
         private void DeleteClick(object sender, EventArgs e)
